@@ -1,0 +1,9 @@
+
+- Added Boss (Can't move, high range attack)
+- Battle system visual update
+- Victory screen
+
+Background - http://steamtradingcards.wikia.com/wiki/File:Desktop_Dungeons_Background_Darkest_Dungeon.jpg
+
+scroll - 
+http://minecraftfanfictions.wikia.com/wiki/File:Scroll_template.jpg

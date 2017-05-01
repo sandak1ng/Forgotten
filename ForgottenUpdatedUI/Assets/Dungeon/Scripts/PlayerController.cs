@@ -6,16 +6,21 @@ public class PlayerController : MonoBehaviour {
 
 	public float speed;
 	public GameObject PlayerObject;
+    private Animator anim;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
 		Vector3 savedPosition = new Vector3 (PlayerPrefs.GetFloat ("playerX"), PlayerPrefs.GetFloat ("playerY"), PlayerPrefs.GetFloat ("playerZ"));
 		PlayerObject.transform.position = savedPosition;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetAxisRaw ("Horizontal") > 0.5f || Input.GetAxisRaw ("Horizontal") < -0.5f) 
+        anim = GetComponent<Animator>();
+
+
+        if (Input.GetAxisRaw ("Horizontal") > 0.5f || Input.GetAxisRaw ("Horizontal") < -0.5f) 
 		{
 			transform.Translate (new Vector3 (Input.GetAxisRaw ("Horizontal") * speed * Time.deltaTime, 0f, 0f));
 		}
@@ -28,5 +33,8 @@ public class PlayerController : MonoBehaviour {
 		PlayerPrefs.SetFloat ("playerX", PlayerObject.transform.position.x);
 		PlayerPrefs.SetFloat ("playerY", PlayerObject.transform.position.y);
 		PlayerPrefs.SetFloat ("playerZ", PlayerObject.transform.position.z);
-	}
+
+        anim.SetFloat("moveX", Input.GetAxisRaw("Horizontal"));
+        anim.SetFloat("moveY", Input.GetAxisRaw("Vertical"));
+    }
 }

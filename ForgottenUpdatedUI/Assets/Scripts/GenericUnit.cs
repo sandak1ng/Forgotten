@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GenericUnit : Unit
 {
+    private Animator anim;
     public string UnitName;
 
     private Coroutine PulseCoroutine;
@@ -11,21 +12,25 @@ public class GenericUnit : Unit
     {
         base.Initialize();
         transform.position += new Vector3(0, 0, -0.1f);
+         
+        anim = GetComponent<Animator>();
     }
 
     public override void OnUnitDeselected()
     {
         base.OnUnitDeselected();
         StopCoroutine(PulseCoroutine);
-        transform.localScale = new Vector3(0.05f, 0.05f, 0.05f); //scale transform
-    }
+        transform.localScale = new Vector3(0.15f, 0.15f, 0.05f); //scale transform
+            }
 
     public override void MarkAsAttacking(Unit other)
     {
         StartCoroutine(Jerk(other));
+
+        
     }
     public override void MarkAsDefending(Unit other)
-    {
+    {  
        // StartCoroutine(Glow(new Color(1, 0, 0, 0.5f), 1));
     }
     public override void MarkAsDestroyed()
@@ -40,15 +45,20 @@ public class GenericUnit : Unit
         float startTime = Time.time;
 
         while (startTime + 0.25f > Time.time)
-        {
+        {        
+            bool attack = true;
+            anim.SetBool("attack", attack);
             transform.position = Vector3.Lerp(transform.position, transform.position + (direction / 50f), ((startTime + 0.25f) - Time.time));
             yield return 0;
         }
         startTime = Time.time;
         while (startTime + 0.25f > Time.time)
         {
+            bool attack = false;
             transform.position = Vector3.Lerp(transform.position, transform.position - (direction / 50f), ((startTime + 0.25f) - Time.time));
             yield return 0;
+            anim.SetBool("attack", attack);
+
         }
         transform.position = Cell.transform.position + new Vector3(0, 0, -0.1f);
         GetComponent<SpriteRenderer>().sortingOrder = 4;
@@ -101,7 +111,7 @@ public class GenericUnit : Unit
     {
         PulseCoroutine = StartCoroutine(Pulse(1.0f, 0.5f, 1.25f));
         SetColor(Color.red);
-       // SetColor(Color.white);//(new Color(0.8f, 0.8f, 1));
+        SetColor(Color.white);//(new Color(0.8f, 0.8f, 1));
     }
     public override void MarkAsFinished()
     {

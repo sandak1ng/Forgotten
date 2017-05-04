@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForgottenUpdatedUI", "Assembly-CSharp.csproj", "{64E5471D-C7D0-6599-AC23-67784DA313BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForgottenUpdatedUI", "Assembly-CSharp-Editor.csproj", "{D7BF6911-36A1-5A20-704B-16484392705D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64E5471D-C7D0-6599-AC23-67784DA313BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64E5471D-C7D0-6599-AC23-67784DA313BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64E5471D-C7D0-6599-AC23-67784DA313BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64E5471D-C7D0-6599-AC23-67784DA313BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7BF6911-36A1-5A20-704B-16484392705D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7BF6911-36A1-5A20-704B-16484392705D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7BF6911-36A1-5A20-704B-16484392705D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7BF6911-36A1-5A20-704B-16484392705D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

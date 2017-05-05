@@ -12,6 +12,9 @@ public class CustomUnitGenerator : MonoBehaviour, IUnitGenerator
 	public Unit player2;
 	public Unit player3;
 	public Unit player4;
+	public Unit boss;
+	public Unit boss1;
+	public Unit boss2;
 	public float spawnAreaCoef = 0.8f;
 	public int minimumEnemies = 2;
 	public float difficulty = 4.0f;
@@ -31,7 +34,9 @@ public class CustomUnitGenerator : MonoBehaviour, IUnitGenerator
 			adversaries.Add (e.GetComponent<Unit>());
 			adversaries [i].GetComponent<Unit> ().name = "Enemy" + i;
 		}
-
+		if (boss != null) adversaries.Add (boss);
+		if (boss1 != null) adversaries.Add (boss1);
+		if (boss2 != null) adversaries.Add (boss2);
         List<Unit> ret = new List<Unit>();
 		float cellMin = cells [0].transform.position.x;
 		float cellMax = cells [0].transform.position.x;
